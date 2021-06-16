@@ -1,0 +1,33 @@
+.search{
+  margin-top: 1%;
+  text-align: right;
+    margin-right: 3%;
+
+}
+.container{
+  border: 1px solid red;
+  margin-top: 2%
+}
+.searchBox{
+  margin-right: 0px;
+
+}
+.col{
+display: inline-block;
+  flex-wrap: wrap;
+  justify-content: space-around;
+
+}
+#content{
+    margin-top: 1%;
+}
+.title{
+ justify-content: center;
+  display: flex;
+    margin-right:1%;
+  font-size: 20px;
+  padding-left:5%;
+    margin-top: 1%;
+    font-weight: bold;
+    font-family: Century;
+}
