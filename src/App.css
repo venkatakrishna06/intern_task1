@@ -1,7 +1,7 @@
 .search{
   margin-top: 1%;
   text-align: right;
-    margin-right: 3%;
+    margin-right: 8%;
 
 }
 .container{
@@ -13,13 +13,15 @@
 
 }
 .col{
-display: inline-block;
+display: inline-grid;
   flex-wrap: wrap;
   justify-content: space-around;
+    margin-left: 1%;
 
 }
 #content{
-    margin-top: 1%;
+    margin-top: 5%;
+
 }
 .title{
  justify-content: center;

@@ -1,33 +1,38 @@
-
 import './App.css';
 import {useState} from "react";
 import Data from "./Data.json";
 function App() {
     const[search,setSearch]=useState('');
+    const [data, setData] = useState(Data);
+    let backupMovies = [...Data];
+
+    const updateMovies =() =>{
+ if(!search)setData(backupMovies);
+
+ if(search){
+  setData(backupMovies.filter( e => e.title.toLowerCase().indexOf(search.toLowerCase()) >= 0));
+ }
+
+    }
   return (
 <div>  <div className='search'>
-    <form  className='searchBox'>
         <input type='text' className='searchBox'
-               placeholder='Search for Movies' onChange={event => {setSearch(event.target.value)}}/>
-        <button type='submit' className='searchBox' ><i className="fa fa-search"></i></button>
-    </form>
+               placeholder='Search for Movies' onKeyPress={(event) => {
+            var key = event.keyCode || event.which;
+            if (key === 13) {
+                updateMovies()
+            }
+        }} onChange={event => setSearch(event.target.value)}/>
+        <button className='searchBox' onClick={updateMovies}><i className="fa fa-search"></i></button>
 </div>
-    {Data.filter((val)=>{
-        if (search==""){
-            return val;
-        }
-        else if (val.title.toLowerCase().includes(search.toLowerCase()))
-        {
-            return val;
-        }
-    }).map((val,key)=>{
+    {data.map((val,key)=>{
         return(
-            <div className='col'>
+            <div className='col' key={key}>
         <div className="rounded mx-auto d-block " id='content'>
 
-            <div className='img' key={key}><img src={val.src}/></div>
+            <div className='img'><img src={val.src}/></div>
 
-            <span className='title' key={key}>
+            <span className='title'>
                         {val.title}
                     </span>
         </div>
